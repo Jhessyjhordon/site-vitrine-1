@@ -7,8 +7,10 @@ import { Component } from '@angular/core';
 })
 export class MenuComponent {
 
-  events: string[] = [];
-  opened!: boolean;
+  opened = false;
 
-  shouldRun = /(^|.)(stackblitz|webcontainer).(io|com)$/.test(window.location.host);
+  log(state: string) {
+    console.log(state);
+  }
+
 }
