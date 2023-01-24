@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<!-- <mat-toolbar color="primary">
     <mat-toolbar-row>
         <button mat-icon-button>
             <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
@@ -16,26 +16,40 @@
     <mat-toolbar-row>
         <span style="font-size: 12px;">SimpleCRM helps you easily manage your contacts</span>
     </mat-toolbar-row>
-</mat-toolbar>
+</mat-toolbar> -->
 
 <mat-sidenav-container>
-    <mat-sidenav #sidenav>
-        <mat-nav-list>
-<!-- 
-            <a mat-list-item [routerLink]="'/homepage'"> Home </a>
-            <a mat-list-item [routerLink]="'/about'"> About </a>
-            <a mat-list-item [routerLink]="'/contacts'"> Contacts </a>
-            <a mat-list-item (click)="sidenav.toggle()" href="" mat-list-item>Close</a> -->
 
-        </mat-nav-list>
+    <mat-sidenav #sidenav mode="side" (opened)="log('Opened')" (closed)="log('Close')" [(opened)]="opened"> <!-- the are 3 modes : over (deffault), push and side  -->
+        sidenav
     </mat-sidenav>
-    <mat-sidenav-content>
-        <div style="height: 20vh;">
 
-            <a mat-list-item [routerLink]="'/homepage'"> Home </a>
-            <a mat-list-item [routerLink]="'/about'"> About </a>
-            <a mat-list-item [routerLink]="'/contacts'"> Contacts </a>
-            <a mat-list-item (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+    <mat-sidenav-content class="navbar">
+        <div>
+            <button mat-icon-button (click)="opened=!opened">
+                <mat-icon>menu</mat-icon>
+            </button>
+    
+            <!-- 2 buttons one to open the sidenav and the other to close it -->
+            <button mat-icon-button (click)="sidenav.open()">
+                <mat-icon style="transform: rotate(90deg)">expand Content</mat-icon>
+            </button>
+            <button mat-icon-button (click)="sidenav.close()">
+                <mat-icon>close</mat-icon>
+            </button>
+    
+            <button (click)="sidenav.toggle()">
+                <mat-icon>Toggle</mat-icon>
+            </button>
+
         </div>
+
+        <div class="links" >
+            <a mat-list-item  class="link" [routerLink]="'/homepage'"> Home </a>
+            <a mat-list-item  class="link" [routerLink]="'/about'"> About </a>
+            <a mat-list-item  class="link" [routerLink]="'/contacts'"> Contacts </a>
+            <!-- <a mat-list-item (click)="sidenav" href="" mat-list-item>Close</a> -->
+        </div>
+        
     </mat-sidenav-content>
 </mat-sidenav-container>
