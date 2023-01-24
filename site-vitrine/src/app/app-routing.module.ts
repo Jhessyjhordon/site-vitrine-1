@@ -1,7 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 
-const routes: Routes = [];
+// add route the the array of routes
+const routes: Routes = [
+  { path: 'home', component: HomeComponent},
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+
+  // add end of all routes
+  { path: '**', redirectTo: '/home' }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
