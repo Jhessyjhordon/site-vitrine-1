@@ -8,6 +8,9 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class HomeComponent {
 
+  notifications = 2;
+  notifications2 = 0;
+
   // add SVG icons
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
     iconRegistry.addSvgIcon(
