@@ -123,3 +123,16 @@ Here, we using property binding to get values dynamicaly and we use matBadgeHidd
 <div class="badge"> <!-- Here, we using property binding to get values dynamicaly -->
     <span [matBadge]="notifications2" [matBadgeHidden]="notifications2 === 0">Notification</span>
 </div>
+
+<mat-menu #appMenu2="matMenu" xPosition="after" yPosition="above">
+    <button class="matMenuItem" mat-menu-item [matMenuTriggerFor]="subMenu2">FontEnd</button>
+    <button class="matMenuItem" mat-menu-item>BackEnd</button>
+</mat-menu>
+
+<button class="center" mat-flat-button [matMenuTriggerFor]="appMenu2">Menu</button>
+
+<mat-menu #subMenu2="matMenu">
+    <button class="matMenuItem" mat-menu-item>Angular</button>
+    <button class="matMenuItem" mat-menu-item>React</button>
+    <button class="matMenuItem" mat-menu-item>Vue</button>
+</mat-menu>
